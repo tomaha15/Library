@@ -10,22 +10,34 @@
 <body>
     <div id="central-container">
         <header>My Library</header>
+        
+        <div id="new-entry">
+            <div class="flexCont">
+                <form action="">
+                    <label for="title">Title</label>
+                    <input id="title" type="text">
+                    <label for="author">Author</label>
+                    <input type="text" name="" id="author">
+                    <label for="pages">Number of Pages</label>
+                    <input type="text" name="" id="pages">
+                    <button type="button" id="new-book" >Add Title</button>
+                </form>
+            </div>
+        </div>
 
         <div id="book-grid">
             <div id="card">title</div>
-            <div id="card">title</div>
-            <div id="card">title</div>
-            <div id="card">title</div>
-            <div id="card">title</div>
+            
             
             
 
 
         </div>
 
-        <button type="button">+ Add New Title</button>
+        <button id="new-title" type="button">+ Add New Title</button>
 
     </div>
+    <button class="close">&times;</button>
     
 
 <script src="script.js"></script>
