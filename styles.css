@@ -15,10 +15,6 @@ body {
 }
 
 #new-entry {
-    display: none;
-}
-
-#central-container div.displayToggle {
     display:flex;
     justify-content: center;
     align-items: center;
@@ -30,10 +26,16 @@ body {
     background-color: rgb(0, 0, 0,.35);
     backdrop-filter: blur(3px);
     z-index: 3;
+    transform: scale(0);
+    transition: 0.2s ease-in-out;
+}
+
+#central-container div.displayToggle {
+
+    transform: scale(1);
     
 }
 button.close{
-    display: none;
     position: fixed;
     top: 5%;
     right: 5%;
@@ -44,10 +46,13 @@ button.close{
     z-index: 99;
     cursor: pointer;
     padding:0 14px;
+    transform: scale(0);
+    transition: 0.2s ease-in-out;
+
 }
 
 button.close.active {
-    display: initial;
+    transform: scale(1);
 }
 
 button.close:hover {
