@@ -3,12 +3,12 @@ let newEntry = document.getElementById('new-entry');
 let gridCon = document.getElementById('book-grid');
 let closeBtn = document.querySelector('.close');
 
+const bookGrid = document.getElementById('book-grid');
 
 
 function addCardToGrid () {
   let bookActual = myLibrary[myLibrary.length - 1];
     const card = document.createElement('div');
-    const removeButton = document.createElement('button');
     
     card.setAttribute('id', 'card');
     bookGrid.appendChild(card);
@@ -16,19 +16,26 @@ function addCardToGrid () {
     const titleValue = document.createElement('div');
     const authorValue = document.createElement('div');
     const pagesValue = document.createElement('div');
+    const removeButton = document.createElement('button');
 
     card.appendChild(titleValue);
     card.appendChild(authorValue);
     card.appendChild(pagesValue);
-
-    titleValue.textContent = bookActual.title;
+    card.appendChild(removeButton);
+    
+    titleValue.textContent = `"${bookActual.title}"`;
     authorValue.textContent = bookActual.author;
-    pagesValue.textContent = bookActual.pages;
+    pagesValue.textContent = `${bookActual.pages} pages`;
+    removeButton.textContent = 'REMOVE';
 
     removeButton.setAttribute('type', 'button');
-    removeButton.textContent = 'REMOVE';
-    card.appendChild(removeButton);
+    removeButton.setAttribute('id', 'remove-book');
+
+
+    removeButton.addEventListener('click', () => {removeButton.parentElement.remove()})
+
 }
+
 
 closeBtn.addEventListener('click', () => {
     closeBtn.classList.toggle('active');
@@ -96,22 +103,4 @@ function getBookInfo() {
   const bookEntry = new Book (title, author, pages)
 
   myLibrary.push(bookEntry);
-}
-
-
-
-// Adds Card element to grid to display book
-const bookGrid = document.getElementById('book-grid');
-
-
-
-
-
-
-function test() {
-  myLibrary.forEach((element) => {
-
-  })
-
-  myLibrary.forEach((element) => console.log(element.title));
 }
