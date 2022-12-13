@@ -1,9 +1,34 @@
 let addTitleBtn = document.getElementById('new-title');
 let newEntry = document.getElementById('new-entry');
-
 let gridCon = document.getElementById('book-grid');
-
 let closeBtn = document.querySelector('.close');
+
+
+
+function addCardToGrid () {
+  let bookActual = myLibrary[myLibrary.length - 1];
+    const card = document.createElement('div');
+    const removeButton = document.createElement('button');
+    
+    card.setAttribute('id', 'card');
+    bookGrid.appendChild(card);
+
+    const titleValue = document.createElement('div');
+    const authorValue = document.createElement('div');
+    const pagesValue = document.createElement('div');
+
+    card.appendChild(titleValue);
+    card.appendChild(authorValue);
+    card.appendChild(pagesValue);
+
+    titleValue.textContent = bookActual.title;
+    authorValue.textContent = bookActual.author;
+    pagesValue.textContent = bookActual.pages;
+
+    removeButton.setAttribute('type', 'button');
+    removeButton.textContent = 'REMOVE';
+    card.appendChild(removeButton);
+}
 
 closeBtn.addEventListener('click', () => {
     closeBtn.classList.toggle('active');
@@ -18,8 +43,18 @@ addTitleBtn.addEventListener('click', () => {
 
 let newBook = document.getElementById('new-book');
 newBook.addEventListener('click', () => {
-    
+  newEntry.classList.toggle('displayToggle');
+  closeBtn.classList.toggle('active');
+  getBookInfo();
+  addCardToGrid();
+
+  console.log(title.value);
+  title.value = '';
+  author.value = '';
+  pages.value = '';
+  console.table(myLibrary);
 })
+
 
 
 
@@ -44,18 +79,39 @@ myLibrary[2] = {
   pages:'310'
 }
 
-function Book() {
-  // the constructor...
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+  }
 }
 
-function addBookToLibrary() {
-  // do stuff here
+function getBookInfo() {
+//get user input
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+
+  const bookEntry = new Book (title, author, pages)
+
+  myLibrary.push(bookEntry);
 }
+
+
+
+// Adds Card element to grid to display book
+const bookGrid = document.getElementById('book-grid');
+
+
+
+
+
 
 function test() {
   myLibrary.forEach((element) => {
 
   })
-  
+
   myLibrary.forEach((element) => console.log(element.title));
 }

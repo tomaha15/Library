@@ -27,7 +27,7 @@ body {
     backdrop-filter: blur(3px);
     z-index: 3;
     transform: scale(0);
-    transition: 0.2s ease-in-out;
+    /* transition: 0.05s ease-in-out; */
 }
 
 #central-container div.displayToggle {
@@ -47,7 +47,7 @@ button.close{
     cursor: pointer;
     padding:0 14px;
     transform: scale(0);
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
 
 }
 
@@ -134,7 +134,24 @@ button.close:hover {
 
 #card {
     border-radius: 10px;
-    padding: 10px;
+    padding: 50px 10px 25px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+#card button {
+    margin-top: auto;
+    padding: 5px 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+}
+
+#card button:hover {
+    background-color: rgb(233, 71, 71);
+    color: white;
 }
 
 #card:hover {
